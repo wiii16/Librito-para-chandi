@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Chandi ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Georgia, serif;
+  background: #fff0f3;
+  color: #632b3b;
+  text-align: center;
+}
+
+.contenedor {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 25px;
+}
+
+.tarjeta {
+  background: white;
+  padding: 30px 22px;
+  border-radius: 22px;
+  box-shadow: 0 5px 20px #d9a4b4;
+}
+
+h1 {
+  color: #b8325c;
+}
+
+input, button {
+  padding: 13px;
+  border-radius: 12px;
+  border: 1px solid #d9a4b4;
+  font-size: 16px;
+  margin: 8px;
+}
+
+button {
+  background: #b8325c;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#libro {
+  display: none;
+}
+
+.pagina {
+  background: #fff8f5;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 15px;
+  line-height: 1.8;
+}
+
+</style>
+</head>
+
+<body>
+<div class="contenedor">
+
+<div class="tarjeta" id="entrada">
+  <h1>♡ Para mi Chandi ♡</h1>
+  <p>He guardado algo muy especial para ti.</p>
+  <p>Pero antes, debes conocer la clave de nuestro pequeño mundo.</p>
+
+  <input id="clave" type="password"
+  placeholder="Escribe nuestra contraseña">
+
+  <br>
+
+  <button onclick="abrir()">Abrir mi regalo ❤️</button>
+
+  <p id="error"></p>
+</div>
+
+<div id="libro">
+
+  <div class="tarjeta">
+    <h1>Para ti, mi amor ❤️</h1>
+    <p>Un pequeño libro que guarda un pedacito de mi corazón.</p>
+    <p>♡ ♡ ♡</p>
+  </div>
+
+  <div class="pagina">
+    <h2>Capítulo 1: Mi persona favorita</h2>
+    <p>
+    Mi Chandi, si estás leyendo esto, quiero que sepas
+    que hice este pequeño lugar pensando en ti.
+    </p>
+    <p>
+    Entre tantas personas en el mundo, qué bonito
+    que la vida nos haya permitido encontrarnos.
+    </p>
+  </div>
+
+  <div class="pagina">
+    <h2>Capítulo 2: Nuestro comienzo</h2>
+    <p>
+    Aquí quiero guardar nuestros recuerdos,
+    nuestras risas, nuestras primeras veces
+    y todos esos momentos que hicieron
+    que mi corazón te eligiera.
+    </p>
+    <p>
+    Nunca olvides lo especial que eres para mí.
+    </p>
+  </div>
+
+  <div class="pagina">
+    <h2>Capítulo 3: Mis promesas</h2>
+    <p>
+    Prometo cuidarte, escucharte y acompañarte.
+    Prometo compartir contigo mis alegrías,
+    mis sueños y hasta el pollito más grande.
+    </p>
+    <p>
+    Quiero seguir construyendo recuerdos
+    bonitos a tu lado.
+    </p>
+  </div>
+
+  <div class="pagina">
+    <h2>Una última cosita...</h2>
+    <p>
+    Gracias por existir, por ser tú y por formar
+    parte de mi historia.
+    </p>
+    <p>
+    Te quiero muchísimo, mi Chandi.
+    </p>
+    <h2>Con amor, siempre. ❤️</h2>
+  </div>
+
+</div>
+</div>
+
+<script>
+function abrir() {
+  var clave = document.getElementById("clave").value;
+
+  if (clave === "pollito") {
+    document.getElementById("entrada").style.display = "none";
+    document.getElementById("libro").style.display = "block";
+  } else {
+    document.getElementById("error").innerText =
+      "Esa no es la clave, mi amor. Inténtalo otra vez ❤️";
+  }
+}
+</script>
+
+</body>
+  </html>
+  

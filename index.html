@@ -4,157 +4,572 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para Chandi ❤️</title>
+<title>El día de los Hot Wheels ❤️</title>
 
 <style>
+* { box-sizing: border-box; }
+
 body {
   margin: 0;
-  font-family: Georgia, serif;
-  background: #fff0f3;
-  color: #632b3b;
+  min-height: 100vh;
+  font-family: Georgia, 'Times New Roman', serif;
+  background: linear-gradient(145deg, #270c19, #6b203e, #210d20);
+  color: #fff3e9;
   text-align: center;
+  overflow-x: hidden;
 }
 
-.contenedor {
-  max-width: 500px;
-  margin: 40px auto;
-  padding: 25px;
+button, input { font: inherit; }
+
+button {
+  cursor: pointer;
+  transition: transform .2s, opacity .2s;
 }
 
-.tarjeta {
-  background: white;
-  padding: 30px 22px;
+button:active { transform: scale(.96); }
+
+#entrada {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 22px;
+}
+
+.portada {
+  width: 100%;
+  max-width: 470px;
+  padding: 35px 23px;
+  border: 1px solid #e5b979;
   border-radius: 22px;
-  box-shadow: 0 5px 20px #d9a4b4;
+  background: linear-gradient(145deg, #4b172e, #210d20);
+  box-shadow: 0 0 40px #0008;
+}
+
+.ornamento {
+  color: #edc78c;
+  font-size: 27px;
+  letter-spacing: 8px;
 }
 
 h1 {
-  color: #b8325c;
+  color: #f7dcae;
+  font-size: clamp(29px, 8vw, 43px);
+  line-height: 1.2;
+  font-weight: normal;
 }
 
-input, button {
-  padding: 13px;
+.subtitulo {
+  color: #e9c6c9;
+  font-style: italic;
+  line-height: 1.8;
+}
+
+input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #d9ac75;
   border-radius: 12px;
-  border: 1px solid #d9a4b4;
-  font-size: 16px;
-  margin: 8px;
+  margin: 15px 0 10px;
+  background: #fff8ef;
+  color: #42152c;
+  text-align: center;
+  font-size: 18px;
 }
 
-button {
-  background: #b8325c;
-  color: white;
-  border: none;
-  cursor: pointer;
+.boton {
+  border: 1px solid #f4d5a0;
+  border-radius: 30px;
+  background: linear-gradient(120deg, #b76c4a, #e5b979);
+  color: #351322;
+  padding: 13px 22px;
+  margin: 8px;
+  font-weight: bold;
+  box-shadow: 0 5px 15px #0003;
+}
+
+.boton-secundario {
+  background: #541b38;
+  color: #ffe8d1;
+  border: 1px solid #c89b78;
+}
+
+#error {
+  color: #ffc0ca;
+  min-height: 22px;
 }
 
 #libro {
   display: none;
+  padding: 20px 14px 50px;
+  min-height: 100vh;
 }
 
-.pagina {
-  background: #fff8f5;
-  padding: 20px;
-  margin-top: 20px;
-  border-radius: 15px;
+.cabecera {
+  max-width: 650px;
+  margin: 15px auto 20px;
+  color: #f5d8aa;
+}
+
+.cabecera h1 { font-size: 35px; }
+
+.progreso {
+  width: 100%;
+  max-width: 500px;
+  height: 5px;
+  background: #ffffff25;
+  border-radius: 20px;
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+#barra {
+  width: 14.28%;
+  height: 100%;
+  background: #e7bc80;
+  transition: width .4s;
+}
+
+.libro-papel {
+  position: relative;
+  max-width: 650px;
+  min-height: 510px;
+  margin: auto;
+  padding: 35px 25px;
+  background: #fff8ec;
+  color: #583342;
+  border: 3px double #bd9368;
+  border-radius: 8px 25px 25px 8px;
+  box-shadow: 8px 12px 35px #0006;
+  text-align: left;
+  animation: aparecer .6s ease;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.libro-papel h2 {
+  text-align: center;
+  color: #9d3e5b;
+  font-size: 27px;
+  line-height: 1.4;
+  font-weight: normal;
+}
+
+.libro-papel .numero {
+  text-align: center;
+  color: #b68a60;
+  letter-spacing: 4px;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
+
+.contenido {
+  white-space: pre-line;
+  line-height: 1.95;
+  font-size: 17px;
+  overflow-wrap: anywhere;
+}
+
+.firma {
+  text-align: center;
+  font-style: italic;
+  color: #a14361;
+  font-size: 20px;
+  line-height: 1.8;
+  margin-top: 25px;
+}
+
+.navegacion {
+  max-width: 650px;
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+#contador {
+  color: #f5d8aa;
+  width: 100%;
+  margin: 5px;
+}
+
+.pie {
+  color: #e8c2cb;
+  font-size: 13px;
+  margin: 35px auto;
   line-height: 1.8;
 }
 
+.corazon {
+  position: fixed;
+  bottom: -30px;
+  pointer-events: none;
+  animation: flotar 7s linear forwards;
+  z-index: 10;
+}
+
+@keyframes flotar {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: .8; }
+  100% { transform: translateY(-110vh) rotate(40deg); opacity: 0; }
+}
+
+@media(max-width: 400px) {
+  .libro-papel { padding: 27px 19px; }
+  .contenido { font-size: 16px; }
+}
 </style>
 </head>
 
 <body>
-<div class="contenedor">
 
-<div class="tarjeta" id="entrada">
-  <h1>♡ Para mi Chandi ♡</h1>
-  <p>He guardado algo muy especial para ti.</p>
-  <p>Pero antes, debes conocer la clave de nuestro pequeño mundo.</p>
+<div id="entrada">
+  <div class="portada">
+    <div class="ornamento">♡ ✦ ♡</div>
+    <p class="subtitulo">Un regalo hecho con todo mi corazón</p>
+    <h1>El día de los<br>Hot Wheels</h1>
+    <p class="subtitulo">Para mi rey, mi niño favorito y mi Chandi precioso.</p>
+    <p>Un pequeño libro, un amor inmenso.</p>
+    <div class="ornamento">🏎️ ♡ 🏎️</div>
 
-  <input id="clave" type="password"
-  placeholder="Escribe nuestra contraseña">
+    <p class="subtitulo">
+      Hay regalos que caben en una cajita y amores
+      que no caben en ninguna distancia.
+    </p>
 
-  <br>
+    <input id="clave" type="password"
+      placeholder="Nuestra contraseña"
+      autocomplete="off">
 
-  <button onclick="abrir()">Abrir mi regalo ❤️</button>
+    <button class="boton" onclick="abrir()">
+      Abrir mi regalo ♡
+    </button>
 
-  <p id="error"></p>
+    <p id="error"></p>
+    <p style="font-size:12px;color:#dcb8c2">
+      Hecho especialmente para ti.
+    </p>
+  </div>
 </div>
 
 <div id="libro">
 
-  <div class="tarjeta">
-    <h1>Para ti, mi amor ❤️</h1>
-    <p>Un pequeño libro que guarda un pedacito de mi corazón.</p>
-    <p>♡ ♡ ♡</p>
-  </div>
-
-  <div class="pagina">
-    <h2>Capítulo 1: Mi persona favorita</h2>
-    <p>
-    Mi Chandi, si estás leyendo esto, quiero que sepas
-    que hice este pequeño lugar pensando en ti.
-    </p>
-    <p>
-    Entre tantas personas en el mundo, qué bonito
-    que la vida nos haya permitido encontrarnos.
+  <div class="cabecera">
+    <div class="ornamento">♡ ✦ 🏎️ ✦ ♡</div>
+    <h1>El día de los Hot Wheels</h1>
+    <p class="subtitulo">Para mi niño favorito, con todo mi amor.</p>
+    <button class="boton boton-secundario" onclick="musica()">
+      ♫ Activar música
+    </button>
+    <p id="estadoMusica" style="font-size:12px;color:#e9c6c9">
+      Toca el botón para escuchar una melodía.
     </p>
   </div>
 
-  <div class="pagina">
-    <h2>Capítulo 2: Nuestro comienzo</h2>
-    <p>
-    Aquí quiero guardar nuestros recuerdos,
-    nuestras risas, nuestras primeras veces
-    y todos esos momentos que hicieron
-    que mi corazón te eligiera.
-    </p>
-    <p>
-    Nunca olvides lo especial que eres para mí.
-    </p>
+  <div class="progreso"><div id="barra"></div></div>
+
+  <div class="libro-papel" id="hoja">
+    <div class="numero">♡ PARA TI, MI AMOR ♡</div>
+    <h2>Una carta para mi Chandi</h2>
+    <div class="contenido">
+      Hola mi rey, esta página la hice desde cero.
+      Ni yo sé cómo lo logré programar, pero lo hice jijiji.
+      ¡Tienes una genio a tu lado!
+
+      Recuerda que eres el mejor y que te amo.
+
+      Y nunca olvides aquella primera vez que me diste
+      una de tus chompas. Esos pequeños detalles
+      se quedan guardados en mi corazón.
+    </div>
+    <div class="firma">Con todo mi amor ♡</div>
   </div>
 
-  <div class="pagina">
-    <h2>Capítulo 3: Mis promesas</h2>
-    <p>
-    Prometo cuidarte, escucharte y acompañarte.
-    Prometo compartir contigo mis alegrías,
-    mis sueños y hasta el pollito más grande.
-    </p>
-    <p>
-    Quiero seguir construyendo recuerdos
-    bonitos a tu lado.
-    </p>
+  <div class="navegacion">
+    <button class="boton boton-secundario" id="anterior"
+      onclick="cambiar(-1)">← Anterior</button>
+    <span id="contador">Página 1 de 8</span>
+    <button class="boton" id="siguiente"
+      onclick="cambiar(1)">Siguiente →</button>
   </div>
 
-  <div class="pagina">
-    <h2>Una última cosita...</h2>
-    <p>
-    Gracias por existir, por ser tú y por formar
-    parte de mi historia.
-    </p>
-    <p>
-    Te quiero muchísimo, mi Chandi.
-    </p>
-    <h2>Con amor, siempre. ❤️</h2>
-  </div>
+  <button class="boton boton-secundario" onclick="inicio()">
+    Volver a la portada ♡
+  </button>
 
-</div>
+  <div class="pie">
+    Hecho con amor, desde lejos, pero siempre cerquita de tu corazón.<br>
+    Para mi Chandi. ❤️🏎️
+  </div>
 </div>
 
 <script>
-function abrir() {
-  var clave = document.getElementById("clave").value;
+const claveSecreta = "14/12/25";
 
-  if (clave === "14/12/25") {
+const paginas = [
+{
+titulo: "Hola, mi rey ♡",
+texto: `Hola mi rey, esta página la hice desde cero. Ni yo sé cómo lo logré programar, pero lo hice jijiji. ¡Tienes una genio a tu lado!
+
+Recuerda que eres el mejor y que te amo.
+
+Quería hacerte algo especial, algo que pudieras abrir desde tu celular y que guardara un pedacito de todo lo que siento por ti.
+
+Este pequeño libro es para ti, mi amor.`
+},
+{
+titulo: "Hoy es tu día, mi amor",
+texto: `Hoy es el Día de los Hot Wheels, y aunque quisiera estar a tu lado para ver tu carita al recibir tu regalo, abrazarte y disfrutar este día contigo, me toca amarte desde lejos.
+
+Y no sabes cuánto te extraño.
+
+Hay días en los que la distancia pesa más de lo normal, y hoy es uno de ellos, porque quisiera que no existiera ninguna pantalla entre nosotros, ninguna distancia que me impidiera mirarte a los ojos y decirte lo feliz que me hace verte sonreír.
+
+Pero, aunque hoy no pueda tenerte cerquita, quería encontrar la manera de hacerte sentir que estoy contigo. Que pensé en ti, que este día me importa porque te importa a ti, y que tus pequeñas alegrías también son las mías.
+
+Feliz Día de los Hot Wheels, mi niño hermoso. Hoy el día es tuyo, pero mi corazón sigue siendo tuyo todos los días.`
+},
+{
+titulo: "Todo lo que hice por tu sonrisa",
+texto: `Mi amor, si supieras todo lo que hice para que tu regalo pudiera llegar a tus manos hoy…
+
+De verdad, puse todo de mí. Cada esfuerzo, cada detalle, cada pensamiento y cada pequeña cosa que tuve que hacer para conseguir que este día fuera especial para ti.
+
+No quería simplemente darte un carrito. Quería darte algo que llevara un pedacito de mí, algo que te hiciera sentir querido, pensado y amado incluso cuando no estoy físicamente contigo.
+
+Quizás para otras personas sea solamente un Hot Wheels, un pequeño autito que se guarda en una colección. Pero para mí significa muchísimo más.
+
+Significa que mientras tú estabas haciendo tus cosas, había una personita al otro lado de la distancia pensando en cómo sacarte una sonrisa.
+
+Significa que quería regalarte un recuerdo bonito, algo que algún día puedas mirar y decir: «Mi niña hizo todo eso por mí».
+
+Y sí, mi amor, lo hice por ti. Porque verte feliz es una de esas cosas pequeñas que hacen que mi mundo se sienta mucho más bonito.`
+},
+{
+titulo: "Te extraño más de lo que te imaginas",
+texto: `A veces quisiera tener un botón mágico que me permitiera aparecer a tu lado cuando más te extraño.
+
+Llegar sin avisar, abrazarte por la espalda, esconder mi carita en tu pecho y quedarme ahí, sin preocuparme por la hora ni por cuándo tendremos que despedirnos.
+
+Hoy quisiera ser yo quien te entregue el regalo personalmente. Quisiera ver tus reacciones, escuchar lo que me dirías y molestarte un poquito mientras miras tus carritos.
+
+Quisiera guardar ese momento en mi memoria, porque hay cosas que ninguna fotografía puede capturar por completo: la emoción de estar juntos, el calor de un abrazo y esa sensación de que, por un ratito, el mundo entero está exactamente donde debería estar.
+
+Te extraño en las cosas grandes y en las pequeñas. En las conversaciones, en las risas, en los momentos en los que simplemente quisiera tenerte aquí.
+
+Y aunque hoy te llegue mi regalo antes que mis brazos, quiero que sepas que detrás de él va todo mi amor, mis ganas de verte y un abrazo que llevo demasiado tiempo guardándote.`
+},
+{
+titulo: "Nunca serás un espectador",
+texto: `Mi amor, hay algo que quiero que tengas siempre muy presente.
+
+Aunque hoy estemos lejos, aunque no pueda acompañarte físicamente en cada momento y aunque haya días en los que la distancia nos haga sentir que nos estamos perdiendo pequeñas partes de la vida del otro, tú nunca serás un espectador de mi historia.
+
+Tú eres parte de ella.
+
+No quiero que sientas que tienes que mirar mis días desde una pantalla, como alguien que simplemente observa lo que me sucede. Quiero compartirlos contigo, contarte mis tonterías, mis logros, mis preocupaciones, mis sueños y hasta las cosas más insignificantes que me pasan.
+
+Y también quiero estar en los tuyos.
+
+Quiero escucharte hablar de tus Hot Wheels con esa emoción tan tuya, conocer cada carrito que te guste, celebrar tus alegrías y acompañarte incluso en esos días en los que no tengas muchas ganas de hablar.
+
+No eres alguien que está mirando mi vida desde lejos, Xandi. Eres mi compañero, mi amor y la persona con la que quiero seguir escribiendo tantos capítulos.
+
+La distancia podrá impedirme estar a tu lado en algunos momentos, pero jamás convertirá tu lugar en mi vida en el de un espectador.
+
+Tú no estás viendo mi historia desde afuera, mi niño. Tú eres una de las razones por las que quiero seguir escribiéndola.`
+},
+{
+titulo: "Un pequeño carrito, un amor inmenso",
+texto: `¿Sabes qué me parece lo más bonito de regalarte un Hot Wheels?
+
+Que es pequeño, pero puede guardar un recuerdo enorme.
+
+Quizás algún día tengas muchísimos carritos. Quizás tu colección crezca tanto que ya no sepas dónde ponerlos, y quizás este termine junto a otros que vayas consiguiendo con el tiempo.
+
+Pero me gustaría que, cuando lo veas, recuerdes este día.
+
+Que recuerdes que hubo una chica que te extrañaba muchísimo, que quería estar contigo y que hizo todo lo que pudo para darte una alegría, incluso estando lejos.
+
+Que recuerdes que ese pequeño regalo fue escogido con amor y que detrás de él había una persona que deseaba con todas sus fuerzas verte sonreír.
+
+Y si algún día lo encuentras entre todos tus carritos, espero que te acuerdes de mí, de mis abrazos, de mis ocurrencias y de cuánto me gusta hacerte feliz.
+
+Porque, mi amor, no necesito regalarte algo gigantesco para demostrarte cuánto significas para mí.
+
+A veces, todo un mundo de amor cabe en un pequeño carrito.`
+},
+{
+titulo: "El regalo que todavía me falta darte",
+texto: `Hoy te doy tu Hot Wheels, pero hay algo que todavía me falta entregarte.
+
+Un abrazo de esos que duran muchísimo. Un beso en tu mejilla. Una tarde contigo en la que podamos olvidarnos del reloj y hacer todas esas cosas que ahora tenemos que imaginar.
+
+Me falta ver tu sonrisa de cerquita, tomarte de la mano y decirte cuánto te extrañé sin tener que escribirlo en un mensaje.
+
+Ese regalo no viene en una cajita ni tiene ruedas. No puedo envolverlo ni enviártelo por correo.
+
+Pero te lo estoy guardando.
+
+Te guardo todos los abrazos que no pude darte hoy, todos los besos que se quedaron esperando y todas las ganas de estar contigo que no caben en estas páginas.
+
+Y cuando por fin nos encontremos, quiero recuperar un poquito de todo ese tiempo en el que tuve que amarte desde lejos.
+
+Hasta entonces, quiero que tengas este pequeño recuerdo para que nunca olvides que, incluso en la distancia, hay alguien que piensa en ti con muchísimo amor.`
+},
+{
+titulo: "Para mi niño, con todo mi corazón",
+texto: `Feliz Día de los Hot Wheels, mi Xandi precioso.
+
+Ojalá pudiera estar ahí para ver cómo recibes tu regalo, para abrazarte después y para decirte, mirándote a los ojos, que eres muchísimo más importante para mí de lo que a veces consigo expresar.
+
+Gracias por permitirme conocer esa parte tan bonita y auténtica de ti, por compartir conmigo tus gustos y por dejarme formar parte de las cosas que te hacen feliz.
+
+Nunca dejes de emocionarte por las cosas que amas. Nunca sientas que tienes que dejar de ser ese niño que se alegra con un carrito, que disfruta sus pequeñas colecciones y que encuentra felicidad en los detalles.
+
+A mí me encanta esa parte de ti.
+
+Y si pudiera pedirle algo a este día, sería que, por un instante, sintieras todo el amor que puse en tu regalo, como si estuviera ahí mismo, abrazándote.
+
+Te extraño, te pienso y te quiero muchísimo.
+
+Y recuerda, mi niño:
+
+Hoy te regalo un Hot Wheels, pero si pudiera, te regalaría todos los kilómetros que nos separan para que nunca más tuviéramos que extrañarnos.
+
+Con todo mi amor, para mi niño favorito. ❤️🏎️`
+}
+];
+
+let actual = 0;
+let audioContext = null;
+let intervaloMusica = null;
+let musicaActiva = false;
+
+function abrir() {
+  const clave = document.getElementById("clave").value;
+  if (clave === claveSecreta) {
     document.getElementById("entrada").style.display = "none";
     document.getElementById("libro").style.display = "block";
+    mostrarPagina();
+    corazones();
   } else {
     document.getElementById("error").innerText =
-      "Esa no es la clave, mi amor. Inténtalo otra vez ❤️";
+      "Mmm... esa no es nuestra clave, mi amor. Inténtalo otra vez ♡";
   }
+}
+
+function mostrarPagina() {
+  const p = paginas[actual];
+  document.getElementById("hoja").innerHTML = `
+    <div class="numero">♡ CAPÍTULO ${actual + 1} ♡</div>
+    <h2>${p.titulo}</h2>
+    <div class="contenido">${p.texto}</div>
+    <div class="firma">Con todo mi amor, para ti. ♡</div>
+  `;
+  document.getElementById("contador").innerText =
+    "Página " + (actual + 1) + " de " + paginas.length;
+  document.getElementById("barra").style.width =
+    ((actual + 1) / paginas.length * 100) + "%";
+  document.getElementById("anterior").style.visibility =
+    actual === 0 ? "hidden" : "visible";
+  document.getElementById("siguiente").innerText =
+    actual === paginas.length - 1 ? "Volver al inicio ♡" : "Siguiente →";
+  document.getElementById("hoja").scrollIntoView({
+    behavior: "smooth", block: "start"
+  });
+}
+
+function cambiar(direccion) {
+  if (actual === paginas.length - 1 && direccion === 1) {
+    actual = 0;
+  } else {
+    actual = Math.max(0, Math.min(paginas.length - 1, actual + direccion));
+  }
+  mostrarPagina();
+  corazones();
+}
+
+function inicio() {
+  actual = 0;
+  document.getElementById("libro").style.display = "none";
+  document.getElementById("entrada").style.display = "flex";
+  document.getElementById("clave").value = "";
+  document.getElementById("error").innerText = "";
+  pararMusica();
+}
+
+function corazones() {
+  for (let i = 0; i < 7; i++) {
+    const c = document.createElement("div");
+    c.className = "corazon";
+    c.innerText = ["♡", "♥", "✦", "🏎️"][Math.floor(Math.random()*4)];
+    c.style.left = Math.random() * 95 + "vw";
+    c.style.fontSize = (15 + Math.random() * 20) + "px";
+    c.style.animationDuration = (5 + Math.random() * 4) + "s";
+    document.body.appendChild(c);
+    setTimeout(() => c.remove(), 9000);
+  }
+}
+
+/* Melodía sencilla generada en el propio navegador */
+function musica() {
+  if (musicaActiva) {
+    pararMusica();
+    return;
+  }
+  try {
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    audioContext.resume();
+    musicaActiva = true;
+    document.getElementById("estadoMusica").innerText =
+      "♫ Una melodía para ti ♡";
+    document.querySelector('[onclick="musica()"]').innerText =
+      "♫ Pausar música";
+
+    const notas = [261.63, 329.63, 392, 329.63, 293.66, 349.23, 392, 349.23];
+    let i = 0;
+    intervaloMusica = setInterval(() => {
+      if (!audioContext || audioContext.state === "closed") return;
+      const osc = audioContext.createOscillator();
+      const gain = audioContext.createGain();
+      osc.type = "sine";
+      osc.frequency.value = notas[i % notas.length];
+      gain.gain.setValueAtTime(0.0001, audioContext.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.07, audioContext.currentTime + 0.1);
+      gain.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + 1.1);
+      osc.connect(gain);
+      gain.connect(audioContext.destination);
+      osc.start();
+      osc.stop(audioContext.currentTime + 1.2);
+      i++;
+    }, 650);
+  } catch (e) {
+    document.getElementById("estadoMusica").innerText =
+      "Tu navegador no pudo iniciar la melodía.";
+  }
+}
+
+function pararMusica() {
+  if (intervaloMusica) clearInterval(intervaloMusica);
+  intervaloMusica = null;
+  musicaActiva = false;
+  if (audioContext) {
+    audioContext.close();
+    audioContext = null;
+  }
+  const estado = document.getElementById("estadoMusica");
+  if (estado) estado.innerText = "Toca el botón para escuchar una melodía.";
+  const boton = document.querySelector('[onclick="musica()"]');
+  if (boton) boton.innerText = "♫ Activar música";
 }
 </script>
 
 </body>
-  </html>
+      </html>
   
